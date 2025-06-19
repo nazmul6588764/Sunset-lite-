@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sunset App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="drawer">
+    <div class="profile">
+      <img src="https://via.placeholder.com/50" alt="Profile Pic">
+      <div>
+        <h3 id="userName"></h3>
+        <p id="userPhone"></p>
+      </div>
+    </div>
+    <ul class="menu">
+      <li>New Group</li>
+      <li>Contacts</li>
+      <li>Calls</li>
+      <li>Saved Messages</li>
+      <li>Settings</li>
+    </ul>
+  </div>
+
+  <div class="chat-container">
+    <div class="chat-header">
+      <h2>Group: General</h2>
+      <div class="chat-icons">
+        <button title="Audio Call">📞</button>
+        <button title="Video Call">🎥</button>
+      </div>
+    </div>
+    <div id="messages" class="chat-box"></div>
+    <div class="chat-input">
+      <input type="text" id="message-input" placeholder="Write a message..." />
+      <button onclick="sendMessage()">Send</button>
+      <button title="Voice Message">🎙️</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="supabaseClient.js"></script>
+  <script src="app.js"></script>
+  <script>
+    const user = JSON.parse(localStorage.getItem("sunset_user"));
+    if (!user) window.location.href = "login.html";
+    document.getElementById("userName").textContent = user.name;
+    document.getElementById("userPhone").textContent = user.phone;
+  </script>
+</body>
+</html>
