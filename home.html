@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sunset App - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-header">Sunset App</div>
+  <div class="group-list">
+    <h3>Groups</h3>
+    <ul id="groupList">
+      <li onclick="openChat('room_1')">Group 1</li>
+      <li onclick="openChat('room_2')">Group 2</li>
+    </ul>
+  </div>
+  <div class="chat-section">
+    <h3>Chat</h3>
+    <div id="chatBox" class="chat-box"></div>
+    <input type="text" id="messageInput" placeholder="Type a message">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="supabaseClient.js"></script>
+  <script src="home.js"></script>
+</body>
+</html>

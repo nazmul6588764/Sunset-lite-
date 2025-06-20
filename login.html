@@ -1,43 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - Sunset App</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunset App - Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="login-container">
-    <h2>Login to Sunset App</h2>
-    <input type="text" id="name" placeholder="Name" />
-    <input type="text" id="phone" placeholder="Phone Number" />
-    <input type="email" id="email" placeholder="Email" />
-    <input type="password" id="password" placeholder="Password" />
-    <button onclick="login()">Login / Register</button>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="supabaseClient.js"></script>
-  <script>
-    async function login() {
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-
-      if (!name || !phone || !email || !password) {
-        alert("Please fill in all fields");
-        return;
-      }
-
-      const { error: signupError } = await supabase.auth.signUp({ email, password });
-      if (signupError && signupError.message.includes("registered")) {
-        const { error: signinError } = await supabase.auth.signInWithPassword({ email, password });
-        if (signinError) return alert("Login failed");
-      }
-
-      localStorage.setItem("sunset_user", JSON.stringify({ name, phone, email }));
-      window.location.href = "index.html";
-    }
-  </script>
+    <div class="login-container">
+        <h2>Login to Sunset App</h2>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button id="loginBtn">Login</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="supabaseClient.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
